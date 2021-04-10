@@ -1,0 +1,23 @@
+li {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    padding: 0 15px 10px;
+    cursor: pointer;
+}
+
+.google-news{
+    border-bottom: 5px solid red;
+}
+
+.infobae {
+    border-bottom: 5px solid orange;
+}
+
+.la-gaceta {
+    border-bottom: 5px solid green;
+}
+
+.la-nacion {
+    border-bottom: 5px solid blue;
+}

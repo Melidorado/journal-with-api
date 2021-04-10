@@ -1,0 +1,24 @@
+nav{
+    padding: 20px;
+    width: auto;
+    display: flex;
+    height: 60px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin-right: 30px;
+}
+
+form {
+    width: 30%;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    border: 1.5px solid #ccc;
+}

@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Nav from './components/Nav';
+import CardsContainer from './components/CardsContainer';
+import Footer from './components/Footer';
 
-function App() {
+const api_Key = 'b6a58b0e12a740a29e2ddd6c6900604b'
+
+const App = () => {
+  const [ news, setNews ] = useState([])
+
+  useEffect(() => {
+    const baseUrl = 'https://newsapi.org/v2/top-headlines?'
+    const countrySearch = 'country=ar&'
+    const apiKey = `apiKey=${api_Key}`
+
+
+      fetch(baseUrl + countrySearch + apiKey)
+      .then (res => res.json())
+      .then (data => setNews(data.articles))
+  }, [])
+
+  console.log(news)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+      <CardsContainer news={news}/>
+      <Footer />
+    </>
   );
 }
 
