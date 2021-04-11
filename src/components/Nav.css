@@ -18,7 +18,11 @@ form {
 }
 
 input {
-    width: 100%;
+    width: 30%;
     padding: 5px;
     border: 1.5px solid #ccc;
+}
+
+h2:hover {
+    cursor: pointer;
 }

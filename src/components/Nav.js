@@ -2,7 +2,7 @@ import './Nav.css';
 import Li from './Li';
 import { useState } from 'react';
 
-const Nav = ({handleInputSearch, handleClickSource}) => {
+const Nav = ({handleInputSearch, handleClickSource, handleClick}) => {
     const journals = [ 
         {
             name: "Google News",
@@ -22,20 +22,15 @@ const Nav = ({handleInputSearch, handleClickSource}) => {
         } 
     ]
     const [inputValue, setInputValue ] = useState('')
-    
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        handleInputSearch(inputValue)
-    }
-
+ 
     const handleChange = e => {
         setInputValue(e.target.value)
+        handleInputSearch(inputValue)
     }
 
     return (
         <nav>
-            <h2>JOURNAL NEWS</h2>
+            <h2 onClick={handleClick}>JOURNAL NEWS</h2>
             <ul>
                 {journals.map((journal, i) => 
                   <Li 
@@ -44,9 +39,7 @@ const Nav = ({handleInputSearch, handleClickSource}) => {
                   handleClickSource={handleClickSource}
                   id={journal.id}/> )}
             </ul>
-            <form onSubmit={handleSubmit}>
-                <input type="text" onChange={handleChange} value={inputValue}/>
-            </form>
+            <input type="text" onChange={handleChange} value={inputValue}/>
         </nav>
     )
 }

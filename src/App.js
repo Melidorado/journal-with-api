@@ -13,11 +13,10 @@ const App = () => {
 
   useEffect(() => {
     const baseUrl = 'https://newsapi.org/v2/top-headlines?'
-    const countrySearch = 'country=ar&'
+    const countrySearch = !source ?'country=ar&' : ''
     const apiKey = `apiKey=${api_Key}`
     const searchInput = inputSearch ?`q=${inputSearch}&` : ''
     const searchSource = source ? `sources=${source}&` : ''
-
 
 
     fetch(baseUrl + countrySearch + searchSource + searchInput + apiKey)
@@ -25,10 +24,7 @@ const App = () => {
     .then (data => setNews(data.articles))
   }, [inputSearch, source])
 
-  console.log(news)
-  console.log(source)
-
-  const handleInputSearch = (search) => {
+  const handleInputSearch = search => {
     setInputSearch(search)
   }
 
@@ -36,11 +32,18 @@ const App = () => {
     setSource(e.target.id)
   }
 
+  const handleClick = () => {
+    setSource('')
+    setInputSearch('')
+  }
+
   return (
     <>
       <Nav 
       handleInputSearch={handleInputSearch}
-      handleClickSource={handleClickSource}/>
+      handleClickSource={handleClickSource}
+      handleClick={handleClick}
+      inputSearch={inputSearch}/>
       <CardsContainer news={news}/>
       <Footer />
     </>

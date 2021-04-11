@@ -13,7 +13,7 @@ const Card = ({news}) => {
                 <p className="source">{news.source.name}</p>
                 <p>{date}</p>
             </div>
-            <h4>{news.title}</h4>
+            <a href={news.url} target="_blank">{news.title}</a>
             <p className="description">{news.description}</p>
         </article>
     )
