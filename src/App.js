@@ -8,23 +8,39 @@ const api_Key = 'b6a58b0e12a740a29e2ddd6c6900604b'
 
 const App = () => {
   const [ news, setNews ] = useState([])
+  const [inputSearch, setInputSearch] = useState('')
+  const [ source, setSource] = useState('')
 
   useEffect(() => {
     const baseUrl = 'https://newsapi.org/v2/top-headlines?'
     const countrySearch = 'country=ar&'
     const apiKey = `apiKey=${api_Key}`
+    const searchInput = inputSearch ?`q=${inputSearch}&` : ''
+    const searchSource = source ? `sources=${source}&` : ''
 
 
-      fetch(baseUrl + countrySearch + apiKey)
-      .then (res => res.json())
-      .then (data => setNews(data.articles))
-  }, [])
+
+    fetch(baseUrl + countrySearch + searchSource + searchInput + apiKey)
+    .then (res => res.json())
+    .then (data => setNews(data.articles))
+  }, [inputSearch, source])
 
   console.log(news)
+  console.log(source)
+
+  const handleInputSearch = (search) => {
+    setInputSearch(search)
+  }
+
+  const handleClickSource = e => {
+    setSource(e.target.id)
+  }
 
   return (
     <>
-      <Nav />
+      <Nav 
+      handleInputSearch={handleInputSearch}
+      handleClickSource={handleClickSource}/>
       <CardsContainer news={news}/>
       <Footer />
     </>

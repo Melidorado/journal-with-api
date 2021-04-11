@@ -1,8 +1,9 @@
 import './Li.css';
 
-const Li = ({value}) => {
+const Li = ({value, handleClickSource, id}) => {
+
     return(
-        <li className={value.replace(' ','-').toLowerCase()}>
+        <li className={value.replace(' ','-').toLowerCase()} id={id} onClick={handleClickSource}>
             {value}
         </li>
     )
