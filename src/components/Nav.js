@@ -1,5 +1,5 @@
 import './Nav.css';
-import Li from './Li';
+import JournalLink from './JournalLink';
 import { useState } from 'react';
 
 const Nav = ({handleInputSearch, handleClickSource, handleClick}) => {
@@ -30,15 +30,17 @@ const Nav = ({handleInputSearch, handleClickSource, handleClick}) => {
 
     return (
         <nav>
+            <div className="titles-container">
             <h2 onClick={handleClick}>JOURNAL NEWS</h2>
             <ul>
                 {journals.map((journal, i) => 
-                  <Li 
+                  <JournalLink 
                   value={journal.name} 
                   key={`${journal.name}-${i}`} 
                   handleClickSource={handleClickSource}
                   id={journal.id}/> )}
             </ul>
+            </div>
             <input type="text" onChange={handleChange} value={inputValue}/>
         </nav>
     )

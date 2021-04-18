@@ -7,6 +7,10 @@ nav{
     align-items: center;
 }
 
+.titles-container {
+    display: flex;
+}
+
 ul {
     display: flex;
     list-style: none;
@@ -25,4 +29,86 @@ input {
 
 h2:hover {
     cursor: pointer;
+}
+
+@media (max-width:1100px) {
+   nav{
+       height: auto;
+       display: block;
+   }
+   input {
+       width: 70%;
+       margin-top: 20px;
+   }
+}
+
+@media (max-width:800px) {
+    h2{
+        font-size: 20px;
+    }
+    li {
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width:700px) {
+    input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width:667px) {
+    h2{
+        font-size: 17px;
+    }
+    ul {
+        padding-left: 10px;
+    }
+    li {
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width:570px) {
+    h2{
+        font-size: 15px;
+    }
+    li {
+        font-size: 10px !important;
+    }
+}
+@media (max-width:519px) {
+    h2{
+        font-size: 13px;
+    }
+    li {
+        font-size: 8px !important;
+    }
+}
+
+@media (max-width:479px) {
+    .titles-container{
+        display: block;
+    }
+    ul {
+        padding-left: 0;
+        margin-top: 15px;
+        margin-right: 0;
+    }
+    input {
+        margin-top: 5px;
+    }
+}
+
+@media (max-width:352px) {
+    li {
+        font-size: 6px !important;
+    }
+}
+
+@media (max-width:284px) {
+    li {
+        font-size: 4px !important;
+    }
 }

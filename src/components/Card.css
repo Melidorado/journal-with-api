@@ -53,3 +53,23 @@ a:visited {
 .description {
     line-height: 18px;
 }
+
+@media (max-width:701px) {
+    article {
+        width: 250px;
+        height: 300px;
+    }
+}
+
+@media (max-width:599px) {
+    article {
+        width: 200px;
+    }
+}
+
+@media (max-width:500px) {
+    article {
+        width: auto;
+        height: 400px;
+    }
+}

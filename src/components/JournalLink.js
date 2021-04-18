@@ -1,6 +1,6 @@
-import './Li.css';
+import './JournalLink.css';
 
-const Li = ({value, handleClickSource, id}) => {
+const JournalLink = ({value, handleClickSource, id}) => {
 
     return(
         <li className={value.replace(' ','-').toLowerCase()} id={id} onClick={handleClickSource}>
@@ -9,4 +9,4 @@ const Li = ({value, handleClickSource, id}) => {
     )
 }
 
-export default Li;
+export default JournalLink;
